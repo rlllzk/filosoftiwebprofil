@@ -5,41 +5,13 @@
 <!--[if gt IE 8]><!-->
 <html class="no-js" lang="">
 <!--<![endif]-->
-<head>
-{% load static %}  
-<meta charset="utf-8">
-<meta name="description" content="">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Filosofti Software</title>
-<link rel="shortcut icon" href="{% static 'images/icon.ico' %}">
-<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-<link rel="stylesheet" href="{% static 'css/flexslider.css' %}">
-<link rel="stylesheet" href="{% static 'css/jquery.fancybox.css' %}">
-<link rel="stylesheet" href="{% static 'css/main.css' %}">
-<link rel="stylesheet" href="{% static 'css/responsive.css' %}">
-<link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
-<link rel="stylesheet" href="{% static 'css/font-icon.css' %}">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-</head>
+{% include 'head.html' %}
 
 <body>
 <!-- header section -->
 <section class="banner" role="banner"> 
   <!--header navigation -->
-  <header id="header">
-    <div class="header-content clearfix"> <a class="logo" href="#"><img src="{% static 'images/logo.png' %}" alt=""></a>
-      <nav class="navigation" role="navigation">
-        <ul class="primary-nav">
-          <li><a href="#intro">Intro</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#works">Teknologi</a></li>
-          <li><a href="#testimonials">Testimoni</a></li>
-          <li><a href="kontak/">Kontak</a></li>
-        </ul>
-      </nav>
-      <a href="#" class="nav-toggle">Menu<span></span></a> 
-    </div>
-  </header>
+{% include 'header.html' %}
   <!--header navigation --> 
   <div class="container">
   <div class="banner-text">
@@ -49,178 +21,11 @@
 </section>
 <!-- header section --> 
 <!-- about section -->
-<section id="intro" class="section intro no-padding">
-  <div class="container-fluid">
-    <div class="row no-gutter">
-      <div class="flexslider">
-        <ul class="slides">
-          <li>
-            {% for Intro in intros %}
-            {% if forloop.counter == 1 %}
-            <div class="col-md-6">
-              <div class="avatar"> <img src="{{ Intro.ifoto.url}}" alt="" class="img-responsive"> </div>
-            </div>
-            <div class="col-md-6">
-              <blockquote>
-                <h1>{{Intro.ijudul}}</h1>
-                <p>{{Intro.iisi}}</p>
-              </blockquote>
-            </div>
-            {% else %}
-          </li>
-          <li>
-            <div class="col-md-6">
-              <div class="avatar"> <img src="{{ Intro.ifoto.url}}" alt="" class="img-responsive"> </div>
-            </div>
-            <div class="col-md-6">
-              <blockquote>
-                  <h1>{{Intro.ijudul}}</h1>
-                  <p>{{Intro.iisi}}</p>
-              </blockquote>
-            </div>
-            {% endif %}
-            {% endfor %} 
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- about section --> 
-
-<!-- services section -->
-
-<section id="services" class="services service-section">
-  <div class="container">
-    <div class="row">
-      {% for Services in servis%}
-      {% if forloop.counter == 1%}
-      <div class="col-md-4 col-sm-6 services"> </span>
-        <div class="services-content">
-         <img src="{{Services.sfoto.thumbnail.url}}" alt="" class="img-responsive">
-            <h5>{{Services.sjudul}}</h5>
-            <p>{{Services.sisi}}</p>
-        </div>
-      </div>
-      {% else%}
-      <div class="col-md-4 col-sm-6 services"> </span>
-        <div class="services-content">
-          <img src="{{Services.sfoto.thumbnail.url}}" alt="" class="img-responsive">
-            <h5>{{Services.sjudul}}</h5>
-            <p>{{Services.sisi}}</p>
-        </div>
-      </div>
-      {%endif%}
-      {%endfor%}
-    </div>
-  </div>
-</section>
-<!-- services section --> 
-<!-- work section -->
-
-<section id="works" class="works section no-padding"> 
-  <div class="container-fluid">  
-    <div class="row no-gutter">
-      {% for Works in workss %}
-      {% if forloop.counter == 1%}
-      <div class="col-lg-2 col-md-4 col-sm-4 work"> <img src="{{Works.wfoto.thumbnail.url}}" alt="">
-      </div>
-      {% else %} 
-      <div class="col-lg-2 col-md-4 col-sm-4 work"> <img src="{{Works.wfoto.thumbnail.url}}"  alt="">
-      </div>
-      {% endif %}
-      {% endfor %}
-    </div>
-  </div>
-</section>
-
-<!-- work section --> 
-<!-- Testimonials section -->
-<section id="testimonials" class="section testimonials no-padding">
-  <div class="container-fluid">
-    <div class="row no-gutter">
-      <div class="flexslider">
-        <ul class="slides">
-          <li>
-          {% for Testi in testis %}
-          {% if forloop.counter == 1 %}
-            <div class="col-md-12">
-              <blockquote>
-                <h1>"{{Testi.tisi}}" </h1>
-                <p>{{Testi.tnama}}</p>
-              </blockquote>
-            </div>
-          {% else %}
-          </li>
-          <li>
-            <div class="col-md-12">
-              <blockquote>
-                  <h1>"{{Testi.tisi}}" </h1>
-                  <p>{{Testi.tnama}}</p>
-              </blockquote>
-            </div>
-          </li>
-          {% endif %}
-          {% endfor %}
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- Testimonials section --> 
-<!-- Get a quote section -->
-<section id="contact" class="section quote">
-  <div class="container">
-    <div class="col-md-8 col-md-offset-2 text-center">
-      <h3>Ingin berkonsultasi? Mari kita diskusikan!</h3>
-      <a href="kontak/" class="btn btn-large">hubungi disini</a> </div>
-  </div>
-</section>
+{% include 'konten.html' %}
 <!-- Get a quote section --> 
 <!-- Footer section -->
-<footer class="footer">
-  <div class="footer-top section">
-    <div class="container">
-      <div class="row">
-        <div class="footer-col col-md-6">
-          <h5>Our Office Location</h5>
-          <p>Jl. Mentri Supeno, Yogyakarta<br>
-            0813-1602-7836<br>
-            rezkysy@gmail.com</p>
-          <p>Copyright © 2019 Filosofti. All Rights Reserved.</p>
-        </div>
-        <div class="footer-col col-md-3">
-          <h5>Services We Offer</h5>
-          <p>
-          <ul>
-            <li><a href="#services">UI/UX Desain</a></li>
-            <li><a href="#services">Web App Development</a></li>
-            <li><a href="#services">ERP Development</a></li>
-          </ul>
-          </p>
-        </div>
-        <div class="footer-col col-md-3">
-          <h5>We are on</h5>
-          <ul class="footer-share">
-            <li><a href="https://github.com/rlllzk" target="_blank"><i class="fa fa-github"></i></a></li>
-            <li><a href="https://twitter.com/rezkysy" target="_blank"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="https://instagram.com/rlllzk" target="_blank"><i class="fa fa-instagram"></i></a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- footer top --> 
-  
-</footer>
+{% include 'footer.html' %}
 <!-- Footer section --> 
 <!-- JS FILES --> 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
-<script src="{% static 'js/bootstrap.min.js' %}"></script> 
-<script src="{% static 'js/jquery.flexslider-min.js' %}"></script> 
-<script src="{% static 'js/jquery.fancybox.pack.js' %}"></script> 
-<script src="{% static 'js/retina.min.js' %}"></script> 
-<script src="{% static 'js/modernizr.js' %}"></script> 
-<script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>

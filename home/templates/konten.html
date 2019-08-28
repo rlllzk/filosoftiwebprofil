@@ -1,0 +1,127 @@
+{% load static %}
+<section id="intro" class="section intro no-padding">
+        <div class="container-fluid">
+          <div class="row no-gutter">
+            <div class="flexslider">
+              <ul class="slides">
+                <li>
+                  {% for Intro in intros %}
+                  {% if forloop.counter == 1 %}
+                  <div class="col-md-6">
+                    <div class="avatar"> <img src="{{ Intro.ifoto.url}}" alt="" class="img-responsive"> </div>
+                  </div>
+                  <div class="col-md-6">
+                    <blockquote>
+                      <h1>{{Intro.ijudul}}</h1>
+                      <p>{{Intro.iisi}}</p>
+                    </blockquote>
+                  </div>
+                  {% else %}
+                </li>
+                <li>
+                  <div class="col-md-6">
+                    <div class="avatar"> <img src="{{ Intro.ifoto.url}}" alt="" class="img-responsive"> </div>
+                  </div>
+                  <div class="col-md-6">
+                    <blockquote>
+                        <h1>{{Intro.ijudul}}</h1>
+                        <p>{{Intro.iisi}}</p>
+                    </blockquote>
+                  </div>
+                  {% endif %}
+                  {% endfor %} 
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- about section --> 
+      
+      <!-- services section -->
+      <section id="services" class="services service-section">
+        <div class="container">
+          <div class="row">
+            {% for Services in servis%}
+            {% if forloop.counter == 1%}
+            <div class="col-md-4 col-sm-6 services"> </span>
+              <div class="services-content">
+               <img src="{{Services.sfoto.thumbnail.url}}" alt="" class="img-responsive">
+                  <h5>{{Services.sjudul}}</h5>
+                  <p>{{Services.sisi}}</p>
+              </div>
+            </div>
+            {% else%}
+            <div class="col-md-4 col-sm-6 services"> </span>
+              <div class="services-content">
+                <img src="{{Services.sfoto.thumbnail.url}}" alt="" class="img-responsive">
+                  <h5>{{Services.sjudul}}</h5>
+                  <p>{{Services.sisi}}</p>
+              </div>
+            </div>
+            {%endif%}
+            {%endfor%}
+          </div>
+        </div>
+      </section>
+      <!-- services section --> 
+      <!-- work section -->
+      <section id="works" class="works section no-padding"> 
+        <div class="container-fluid">  
+          <div class="row no-gutter">
+            {% for Works in workss %}
+            {% if forloop.counter == 1%}
+            <div class="col-lg-2 col-md-4 col-sm-4 work"> <img src="{{Works.wfoto.thumbnail.url}}" alt="">
+            </div>
+            {% else %} 
+            <div class="col-lg-2 col-md-4 col-sm-4 work"> <img src="{{Works.wfoto.thumbnail.url}}"  alt="">
+            </div>
+            {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+      
+      <!-- work section --> 
+      <!-- Testimonials section -->
+      <section id="testimonials" class="section testimonials no-padding">
+        <div class="container-fluid">
+          <div class="row no-gutter">
+            <div class="flexslider">
+              <ul class="slides">
+                <li>
+                {% for Testi in testis %}
+                {% if forloop.counter == 1 %}
+                  <div class="col-md-12">
+                    <blockquote>
+                      <h1>"{{Testi.tisi}}" </h1>
+                      <p>{{Testi.tnama}}</p>
+                    </blockquote>
+                  </div>
+                {% else %}
+                </li>
+                <li>
+                  <div class="col-md-12">
+                    <blockquote>
+                        <h1>"{{Testi.tisi}}" </h1>
+                        <p>{{Testi.tnama}}</p>
+                    </blockquote>
+                  </div>
+                </li>
+                {% endif %}
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Testimonials section --> 
+      <!-- Get a quote section -->
+      <section id="contact" class="section quote">
+        <div class="container">
+          <div class="col-md-8 col-md-offset-2 text-center">
+            <h3>Ingin berkonsultasi? Mari kita diskusikan!</h3>
+            <a href="kontak/" class="btn btn-large">hubungi disini</a> </div>
+        </div>
+      </section>
+      <!-- Get a quote section --> 

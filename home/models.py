@@ -13,7 +13,7 @@ class Intro(models.Model):
 class Services(models.Model):
     sjudul = models.CharField(max_length=50)
     sisi = models.TextField(blank=True)
-    sfoto = StdImageField(upload_to="home/static/images/",null=True,blank=True, variations={'thumbnail': (600, 600)})
+    sfoto = StdImageField(upload_to="home/static/images/",null=True,blank=True, variations={'thumbnail': (100, 100)})
 
 class Works(models.Model):
     wfoto = StdImageField(upload_to="home/static/images/", blank=True, null=True, variations={'thumbnail': (600, 600)})

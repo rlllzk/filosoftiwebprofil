@@ -26,7 +26,6 @@ def kontak(request):
         return render(request, 'selamat.html') 
 
     else:
-        #loading contacts.html if no requests
         return render(request, 'kontak.html')
 
 def selamat(request):
